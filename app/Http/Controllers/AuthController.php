@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\{RegisterRequest,LoginRequest};
 use Illuminate\Http\Request;
-use App\Http\Requests\RegisterRequest;
 use App\Notifications\VerifyEmail;
 use App\User;
 use Illuminate\Support\Facades\Validator;
@@ -17,22 +17,23 @@ class AuthController extends Controller
     {
         //$validate = Validator::validate($request->all());
         $validated = $request->validated();
-
+        
         $user = User::create([
             'email' => $request->email,
             'password' => bcrypt($request->password),
             'activation_token' => Str::random(60),
-            'phone' => $request->phone,
             'first_name' => $request->first_name,
             'last_name' => $request->last_name,
         ]);
+        
+        //$user = User::firstWhere('email', $request->email);
 
-        $user->notify(new VerifyEmail($user->activation_token) );
+        //$user->notify(new VerifyEmail($user->activation_token) );
 
         // send verification mail
 
         return response()->json([
-            'message' => 'you have successfully register to whatsapp web',
+            'message' => 'you have successfully registered',
             'user' => $user
         ], http_response_code(201));
     }
@@ -54,5 +55,22 @@ class AuthController extends Controller
 
         return response()->json(['message' => $message ], $http_status_code);
 
+    }
+
+    public function login(LoginRequest $request)
+    {
+        $validated = $request->validated();
+
+        
+    }
+
+    public function logout()
+    {
+        
+    }
+
+    public function user(Request $request)
+    {
+        return $request->user();
     }
 }
