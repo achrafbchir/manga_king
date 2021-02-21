@@ -15,9 +15,9 @@ class CategorieController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $categories = Categorie::all();
+        $categories = Categorie::paginate($request->pagination_limit ?? Categorie::LIMIT_PAGINATOR);
         
         /*if(Guard::default() == "api")
         //{
