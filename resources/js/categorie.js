@@ -15,8 +15,24 @@ $(document).ready(function(){
                 $("#categories .modal input[name='name']").val(responseJSON.name);
                 $("#categories .modal input[name='is_active']").val(responseJSON.is_active);
                 return responseJSON;
+            },
+            error: function(responseJSON, status){
+                return responseJSON;
+            }
+            
+        });
+    })
 
-                
+    $("select[name='categories_entries'").on("change", function(){
+        let pagination_limit = $(this).val();
+        let url = window.local_url + "categories"
+        let data = 'pagination_limit='+pagination_limit
+
+        $.ajax({url : url,
+            type: 'get',
+            data: data,
+            success: function(responseJSON, status){
+                window.location.href = url + "?" + data;
             },
             error: function(responseJSON, status){
                 return responseJSON;

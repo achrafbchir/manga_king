@@ -37296,6 +37296,7 @@ __webpack_require__(/*! ./categorie */ "./resources/js/categorie.js");
 
 
 window.$ = window.jQuery = jquery__WEBPACK_IMPORTED_MODULE_0___default.a;
+window.local_url = "http://127.0.0.1:8000/";
 
 /***/ }),
 
@@ -37369,6 +37370,22 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
         jquery__WEBPACK_IMPORTED_MODULE_0___default()("#categories .modal input[name='name']").val(responseJSON.name);
         jquery__WEBPACK_IMPORTED_MODULE_0___default()("#categories .modal input[name='is_active']").val(responseJSON.is_active);
         return responseJSON;
+      },
+      error: function error(responseJSON, status) {
+        return responseJSON;
+      }
+    });
+  });
+  jquery__WEBPACK_IMPORTED_MODULE_0___default()("select[name='categories_entries'").on("change", function () {
+    var pagination_limit = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).val();
+    var url = window.local_url + "categories";
+    var data = 'pagination_limit=' + pagination_limit;
+    jquery__WEBPACK_IMPORTED_MODULE_0___default.a.ajax({
+      url: url,
+      type: 'get',
+      data: data,
+      success: function success(responseJSON, status) {
+        window.location.href = url + "?" + data;
       },
       error: function error(responseJSON, status) {
         return responseJSON;

@@ -13,11 +13,13 @@
             <div class="d-flex justify-content-between mb-3">
                 <div>
                     <span>Show </span>
-                    <select name="cateories_entries">
-                        <option value="10">10</option>
-                        <option value="25">25</option>
-                        <option value="50">50</option>
-                        <option value="100">100</option>
+
+                    @php $pagination_entries = [2, 5, 10, 25, 50, 100]; @endphp
+                    <select name="categories_entries" value="{{Request::get('pagination_limit')  }}">
+                        @foreach($pagination_entries as $entry)
+                            <option @if(Request::get('pagination_limit') !== null && Request::get('pagination_limit') == $entry ) selected @endif value="{{$entry}}">{{$entry}}</option>
+                        @endforeach
+                        
                     </select>&nbsp;
                     <span>entries</span>
                 </div>
@@ -55,6 +57,11 @@
                     @endforeach
                 </tbody>
             </table>
+
+            <div class="d-flex justify-content-center">
+                {!! $categories->links() !!}
+            </div>
+
         </div>
     </div>
 
