@@ -61,7 +61,9 @@ class CategorieController extends Controller
     {
         $categorie = Categorie::find($id);
 
-        return view("admin.categorie.show", compact("categorie"));
+        return $categorie ?? response()->json(['error' => 'categorie not found'], http_response_code(404));
+
+        //return view("admin.categorie.show", compact("categorie"));
     }
 
     /**

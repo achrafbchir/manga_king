@@ -85,7 +85,7 @@
                     <div class="nav flex-column nav-pills">
                         <a href="{{route('home')}}" class="nav-link active" id="v-pills-home-tab" data-toggle="pill"  role="tab" aria-controls="v-pills-home" aria-selected="true"><i class="fas fa-home"></i> Home</a>
                         <a href="#" class="nav-link"><i class="fas fa-book"></i> Manga</a>
-                        <a href="{{route('admin.categories.index')}}" class="nav-link"><i class="far fa-sticky-note"></i> Categories</a>
+                        <a href="{{route('admin.categorie.index')}}" class="nav-link"><i class="far fa-sticky-note"></i> Categories</a>
                         <a class="nav-link"><i class="fas fa-chart-area"></i> Statistics</a>
                         <a class="nav-link"><i class="fas fa-cog"></i> Settings</a>
                     </div>
@@ -116,10 +116,7 @@
                         </div>
                     </div>
                 </section>
-<<<<<<< HEAD
                 --}}
-=======
->>>>>>> 91edd28a2547a17bf5e149e1348daad0831d5b5d
             </div>
         </div>
         
