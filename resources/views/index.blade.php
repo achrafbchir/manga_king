@@ -6,6 +6,8 @@
 
         <title>Laravel</title>
 
+        <link rel="icon" href="manga_king.jpg" />
+
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
         <link rel="stylesheet" href="{{ asset('css/app.css')  }}">
@@ -67,36 +69,37 @@
             }
         */
 
-        aside{
-            height: 100vh;
-            background-image: linear-gradient(180deg, #EB3349, #F45C43);
-        }
-        aside h2
-        {
-            color: orange;
-            font-family: Gabriola;
-        }
-        aside a{
-            color: #FFF;
-
-        }
 
         
         </style>
     </head>
     <body>
-        <div id="main">
+        <div id="main" class="container-fluid">
             <div class="row">
+                @section('sidebar')
+                
                 <aside class="col-2 pr-0">
-                    <h2>{{env("APP_NAME")}}</h2>
-                    <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                        <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true"><i class="fas fa-book"></i> Home</a>
-                        <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Profile</a>
-                        <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Messages</a>
-                        <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Settings</a>
+                    <h2>{{__("Manga King")}}</h2>
+                    
+                    <hr />
+                    <div class="nav flex-column nav-pills">
+                        <a href="{{route('home')}}" class="nav-link active" id="v-pills-home-tab" data-toggle="pill"  role="tab" aria-controls="v-pills-home" aria-selected="true"><i class="fas fa-home"></i> Home</a>
+                        <a href="#" class="nav-link"><i class="fas fa-book"></i> Manga</a>
+                        <a href="{{route('admin.categories.index')}}" class="nav-link"><i class="far fa-sticky-note"></i> Categories</a>
+                        <a class="nav-link"><i class="fas fa-chart-area"></i> Statistics</a>
+                        <a class="nav-link"><i class="fas fa-cog"></i> Settings</a>
                     </div>
                     
                 </aside>
+                @show
+
+                <section class="col-10">
+                    <div class="container-fluid py-5">
+                        @yield('content')
+                    </div>
+                </section>
+
+                {{--
                 <section class="col-10">
                     <div class="tab-content" id="v-pills-tabContent">
                         <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
@@ -113,6 +116,10 @@
                         </div>
                     </div>
                 </section>
+<<<<<<< HEAD
+                --}}
+=======
+>>>>>>> 91edd28a2547a17bf5e149e1348daad0831d5b5d
             </div>
         </div>
         

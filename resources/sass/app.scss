@@ -9,3 +9,39 @@
 
 // font-awesome
 @import '~@fortawesome/fontawesome-free/css/all.css';
+
+body
+{
+    font-size: 16px;
+}
+
+aside{
+    height: 100vh;
+    background-image: linear-gradient(180deg, #EB3349, #F45C43);
+    
+    h2{
+        color: orange;
+        font-family: Gabriola;
+        padding: 10px;
+        margin: 0 auto;
+    }
+    hr{
+        border-top-color: #FFF;
+        width: 90%;
+    }
+    a{
+        color: #DDD;
+        &:hover
+        {
+            color: #FFF;
+        }
+        .nav-link
+        {
+            .active{
+                background-color: none !important;
+                color: #F00;
+            }
+        }
+    }
+    
+}

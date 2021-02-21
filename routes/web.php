@@ -21,3 +21,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::group([],function(){
+    Route::get('categories', 'CategorieController@index')->name('admin.categories.index');
+});
