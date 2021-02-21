@@ -69,28 +69,11 @@
             }
         */
 
-<<<<<<< HEAD
-=======
-        aside{
-            height: 100vh;
-            background-image: linear-gradient(180deg, #EB3349, #F45C43);
-        }
-        aside h2
-        {
-            color: orange;
-            font-family: Gabriola;
-        }
-        aside a{
-            color: #FFF;
-
-        }
->>>>>>> 91edd28a2547a17bf5e149e1348daad0831d5b5d
 
         
         </style>
     </head>
     <body>
-<<<<<<< HEAD
         <div id="main" class="container-fluid">
             <div class="row">
                 @section('sidebar')
@@ -117,20 +100,6 @@
                 </section>
 
                 {{--
-=======
-        <div id="main">
-            <div class="row">
-                <aside class="col-2 pr-0">
-                    <h2>{{env("APP_NAME")}}</h2>
-                    <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                        <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true"><i class="fas fa-book"></i> Home</a>
-                        <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Profile</a>
-                        <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Messages</a>
-                        <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Settings</a>
-                    </div>
-                    
-                </aside>
->>>>>>> 91edd28a2547a17bf5e149e1348daad0831d5b5d
                 <section class="col-10">
                     <div class="tab-content" id="v-pills-tabContent">
                         <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
