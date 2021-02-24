@@ -25,7 +25,7 @@ class UpdateCategorieRequest extends FormRequest
     {
         return [
             'name' => 'required|unique:categories,name',
-            'status' => 'required|boolean'
+            'is_active' => 'required|boolean'
         ];
     }
 }

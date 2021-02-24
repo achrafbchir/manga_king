@@ -90,7 +90,7 @@ class CategorieController extends Controller
     {
         $categorie = Categorie::find($id)->update($request->all());
 
-        return view("admin.categorie.index");
+        return redirect()->route("admin.categorie.index");
     }
 
     /**

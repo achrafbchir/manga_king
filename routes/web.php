@@ -26,5 +26,5 @@ Route::group([],function(){
     Route::get('categories', 'CategorieController@index')->name('admin.categorie.index');
     Route::get('categorie/{id}', 'CategorieController@show')->name('admin.categorie.show');
     Route::post('categorie', 'CategorieController@store')->name('admin.categorie.store');
-    Route::put('categories/{id}', 'CategorieController@update')->name('admin.categorie.update');
+    Route::put('categorie_update/{id?}', 'CategorieController@update')->name('admin.categorie.update');
 });

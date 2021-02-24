@@ -37359,8 +37359,8 @@ __webpack_require__.r(__webpack_exports__);
 
 window.$ = window.jQuery = jquery__WEBPACK_IMPORTED_MODULE_0___default.a;
 jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
-  console.log(jquery__WEBPACK_IMPORTED_MODULE_0___default()("#categories .modal"));
-  jquery__WEBPACK_IMPORTED_MODULE_0___default()(".show-infos").on('click', function () {
+  console.log(jquery__WEBPACK_IMPORTED_MODULE_0___default()("#categories .modal#categorieUpdate"));
+  jquery__WEBPACK_IMPORTED_MODULE_0___default()(".show-infos, .edit-infos").on('click', function () {
     var url = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).attr('href');
     var id = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).parent().siblings("th").text();
     jquery__WEBPACK_IMPORTED_MODULE_0___default.a.ajax({
@@ -37369,6 +37369,9 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
         jquery__WEBPACK_IMPORTED_MODULE_0___default()("#categories .modal input[name='id']").val(responseJSON.id);
         jquery__WEBPACK_IMPORTED_MODULE_0___default()("#categories .modal input[name='name']").val(responseJSON.name);
         jquery__WEBPACK_IMPORTED_MODULE_0___default()("#categories .modal input[name='is_active']").val(responseJSON.is_active);
+        var route = jquery__WEBPACK_IMPORTED_MODULE_0___default()("#categories .modal .modal-footer .update").data('url');
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()("#categories .modal form").attr('action', route + "/" + responseJSON.id); //console.log()
+
         return responseJSON;
       },
       error: function error(responseJSON, status) {
