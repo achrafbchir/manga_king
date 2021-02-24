@@ -2,9 +2,9 @@ import $ from 'jquery';
 window.$ = window.jQuery = $;
 
 $(document).ready(function(){
-    console.log($("#categories .modal"));
+    console.log($("#categories .modal#categorieUpdate"));
 
-    $(".show-infos").on('click',function(){
+    $(".show-infos, .edit-infos").on('click',function(){
         let url = $(this).attr('href');
         let id = $(this).parent().siblings("th").text()
 
@@ -14,6 +14,9 @@ $(document).ready(function(){
                 $("#categories .modal input[name='id']").val(responseJSON.id);
                 $("#categories .modal input[name='name']").val(responseJSON.name);
                 $("#categories .modal input[name='is_active']").val(responseJSON.is_active);
+                let route = $("#categories .modal .modal-footer .update").data('url');
+                $("#categories .modal form").attr('action', route + "/" + responseJSON.id)
+                //console.log()
                 return responseJSON;
             },
             error: function(responseJSON, status){
