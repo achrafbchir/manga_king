@@ -101,7 +101,7 @@ class CategorieController extends Controller
      */
     public function destroy($id)
     {
-        Categorie::find($id)->destroy();
+        Categorie::find($id)->delete();
 
         return back();
     }

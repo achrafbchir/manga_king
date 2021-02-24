@@ -51,7 +51,11 @@
                             <td class="col-3" style="font-size: 18px !important;">
                                 <a href="{{route('admin.categorie.show', ['id' => $categorie->id ]) }}" role="button" class="show-infos mr-3" style="color: #08F !important;" data-toggle="modal" data-target="#categorieEdit"><i class="fas fa-info-circle"></i></a>
                                 <a href="{{route('admin.categorie.show', ['id' => $categorie->id ]) }}" role="button" class="edit-infos mr-3" style="color: #080 !important;" data-toggle="modal" data-target="#categorieEdit"><i class="far fa-edit"></i></a>
-                                <a role="button" class="mr-3" style="color: #F00 !important;" href="" ><i class="fas fa-trash-alt"></i></a>
+                                <form method="post" action="{{route('admin.categorie.delete', ['id' => $categorie->id ]) }}">
+                                @csrf
+                                @method("DELETE")
+                                    <button type="submit" class="mr-3" style="color: #F00 !important;"><i class="fas fa-trash-alt"></i></button>
+                                </form>
                             </td>
                         </tr>
                     @endforeach
