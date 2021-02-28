@@ -1,4 +1,5 @@
 require('./bootstrap');
+require('./cast');
 require('./categorie');
 
 import $ from 'jquery';

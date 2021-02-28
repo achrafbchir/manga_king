@@ -37292,6 +37292,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
+__webpack_require__(/*! ./cast */ "./resources/js/cast.js");
+
 __webpack_require__(/*! ./categorie */ "./resources/js/categorie.js");
 
 
@@ -37345,6 +37347,28 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /***/ }),
 
+/***/ "./resources/js/cast.js":
+/*!******************************!*\
+  !*** ./resources/js/cast.js ***!
+  \******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$(document).ready(function () {
+  //convert true to 1 & false to 0
+  function castBoolean(bool) {
+    return bool ? 1 : 0;
+  } //cast checkbox values (on & off) to boolean on change
+
+
+  $("input.hidden_is_active_input:hidden").val(castBoolean($("input[type=checkbox]").is(":checked")));
+  $("input[type=checkbox]").change(function () {
+    $(this).siblings("input.hidden_is_active_input:hidden").val(castBoolean($(this).is(":checked")));
+  });
+});
+
+/***/ }),
+
 /***/ "./resources/js/categorie.js":
 /*!***********************************!*\
   !*** ./resources/js/categorie.js ***!
@@ -37368,7 +37392,13 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
       success: function success(responseJSON, status) {
         jquery__WEBPACK_IMPORTED_MODULE_0___default()("#categories .modal input[name='id']").val(responseJSON.id);
         jquery__WEBPACK_IMPORTED_MODULE_0___default()("#categories .modal input[name='name']").val(responseJSON.name);
-        jquery__WEBPACK_IMPORTED_MODULE_0___default()("#categories .modal input[name='is_active']").val(responseJSON.is_active);
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()("#categories .modal input[name='is_active_checkbox']").val(responseJSON.is_active);
+
+        if (responseJSON.is_active == true || responseJSON.is_active == 1) {
+          jquery__WEBPACK_IMPORTED_MODULE_0___default()("#categories .modal input[name='is_active_checkbox']").attr("checked", true);
+          jquery__WEBPACK_IMPORTED_MODULE_0___default()("#categories .modal input[name='is_active']").val(responseJSON.is_active);
+        }
+
         var route = jquery__WEBPACK_IMPORTED_MODULE_0___default()("#categories .modal .modal-footer .update").data('url');
         jquery__WEBPACK_IMPORTED_MODULE_0___default()("#categories .modal form").attr('action', route + "/" + responseJSON.id); //console.log()
 
@@ -37381,7 +37411,7 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
   });
   jquery__WEBPACK_IMPORTED_MODULE_0___default()("select[name='categories_entries'").on("change", function () {
     var pagination_limit = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).val();
-    var url = window.local_url + "categories";
+    var url = window.local_url + "categorie/index";
     var data = 'pagination_limit=' + pagination_limit;
     jquery__WEBPACK_IMPORTED_MODULE_0___default.a.ajax({
       url: url,

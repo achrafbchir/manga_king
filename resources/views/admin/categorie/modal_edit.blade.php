@@ -14,8 +14,12 @@
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="categorie_id">ID</label><input type="text" id="categorie_id" name="id" class="form-control" readonly>
-                        <label for="categorie_name">Name</label><input type="text" id="categorie_name" name="name" class="form-control">
-                        <label for="categorie_is_active">Is active</label><input type="text" id="categorie_is_active" name="is_active" class="form-control">
+                        <label for="categorie_name">Name</label><input type="text" name="name" class="form-control">
+                        <div class="custom-control custom-switch mt-4">
+                            <input type="checkbox" class="custom-control-input" id="customSwitch2" name="is_active_checkbox">
+                            <input type="hidden" class="custom-control-input hidden_is_active_input" id="customSwitchHidden2" name="is_active">
+                            <label class="custom-control-label" for="customSwitch2">Is active</label>
+                        </div>
                     </div>
                 </div>
                 <div class="modal-footer">

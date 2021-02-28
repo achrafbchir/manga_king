@@ -22,10 +22,15 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::group([],function(){
-    Route::get('categories', 'CategorieController@index')->name('admin.categorie.index');
-    Route::get('categorie/{id}', 'CategorieController@show')->name('admin.categorie.show');
-    Route::post('categorie', 'CategorieController@store')->name('admin.categorie.store');
-    Route::put('categorie_update/{id?}', 'CategorieController@update')->name('admin.categorie.update');
-    Route::delete('categorie/{id}', 'CategorieController@destroy')->name('admin.categorie.delete');
+Route::group([
+    "prefix" => "admin"
+],function(){
+    Route::group(["prefix" => "categorie"], function(){
+        Route::get('index', 'CategorieController@index')->name('admin.categorie.index');
+        Route::get('show/{id}', 'CategorieController@show')->name('admin.categorie.show');
+        Route::post('store', 'CategorieController@store')->name('admin.categorie.store');
+        Route::put('update/{id?}', 'CategorieController@update')->name('admin.categorie.update');
+        Route::delete('delete/{id}', 'CategorieController@destroy')->name('admin.categorie.delete');
+    });
+    
 });
