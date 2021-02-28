@@ -24,7 +24,7 @@ class UpdateCategorieRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|unique:categories,name',
+            'name' => 'required|unique:categories,name,'.$this->id,
             'is_active' => 'required|boolean'
         ];
     }

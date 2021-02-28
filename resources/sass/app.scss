@@ -16,8 +16,12 @@ body
 }
 
 aside{
-    height: 100vh;
-    background-image: linear-gradient(180deg, #EB3349, #F45C43);
+    min-height: 100vh;
+    //background-image: linear-gradient(180deg, #EB3349, #F45C43);
+    background-color: #800080;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+
     
     h2{
         color: orange;
@@ -27,10 +31,11 @@ aside{
     }
     hr{
         border-top-color: #FFF;
-        width: 90%;
+        width: 100%;
     }
     a{
         color: #DDD;
+        margin : 0 10px !important;
         &:hover
         {
             color: #FFF;
