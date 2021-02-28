@@ -7,7 +7,7 @@
 
         <title>Laravel</title>
 
-        <link rel="icon" href="manga_king.jpg" />
+        <link rel="icon" href="{{asset('manga_king.jpg')}}" />
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
