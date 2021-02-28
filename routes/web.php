@@ -31,6 +31,7 @@ Route::group([
         Route::post('store', 'CategorieController@store')->name('admin.categorie.store');
         Route::put('update/{id?}', 'CategorieController@update')->name('admin.categorie.update');
         Route::delete('delete/{id}', 'CategorieController@destroy')->name('admin.categorie.delete');
+        Route::delete('mass_delete', 'CategorieController@massDestroy')->name('admin.categorie.mass_delete');
     });
     
 });
