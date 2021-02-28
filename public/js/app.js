@@ -37409,9 +37409,30 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
       }
     });
   });
+  jquery__WEBPACK_IMPORTED_MODULE_0___default()(".mass-delete-categorie").click(function () {
+    if (confirm("You want to delete all theses categories ?")) {
+      var url = window.local_url + "admin/categorie/mass_delete";
+      var data = jquery__WEBPACK_IMPORTED_MODULE_0___default()("input[name='ids[]']").serialize();
+      jquery__WEBPACK_IMPORTED_MODULE_0___default.a.ajaxSetup({
+        //"_token" : $("meta[name='csrf']").attr("value"),
+        headers: {
+          'X-CSRF-TOKEN': jquery__WEBPACK_IMPORTED_MODULE_0___default()("meta[name='csrf']").attr("value")
+        }
+      });
+      jquery__WEBPACK_IMPORTED_MODULE_0___default.a.ajax({
+        'url': url,
+        'type': 'delete',
+        'data': data,
+        success: function success(responseJSON, status) {
+          window.location.href = responseJSON.url;
+        },
+        error: function error(responseJSON, status) {}
+      });
+    }
+  });
   jquery__WEBPACK_IMPORTED_MODULE_0___default()("select[name='categories_entries'").on("change", function () {
     var pagination_limit = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).val();
-    var url = window.local_url + "categorie/index";
+    var url = window.local_url + "admin/categorie/index";
     var data = 'pagination_limit=' + pagination_limit;
     jquery__WEBPACK_IMPORTED_MODULE_0___default.a.ajax({
       url: url,

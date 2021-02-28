@@ -31,12 +31,38 @@ $(document).ready(function(){
         });
     })
 
+    $(".mass-delete-categorie").click(function(){
+        if(confirm("You want to delete all theses categories ?"))
+        {
+            let url = window.local_url + "admin/categorie/mass_delete"
+            let data = $("input[name='ids[]']").serialize()
+            $.ajaxSetup({
+                //"_token" : $("meta[name='csrf']").attr("value"),
+                headers: {
+                    'X-CSRF-TOKEN': $("meta[name='csrf']").attr("value")
+                }
+            });
+            $.ajax({
+                'url': url,
+                'type': 'delete',
+                'data': data,
+                success: function(responseJSON, status){
+                    window.location.href = responseJSON.url
+                },
+                error: function(responseJSON, status){
+
+                }
+            })
+        }
+    })
+
     $("select[name='categories_entries'").on("change", function(){
         let pagination_limit = $(this).val();
-        let url = window.local_url + "categorie/index"
+        let url = window.local_url + "admin/categorie/index"
         let data = 'pagination_limit='+pagination_limit
 
-        $.ajax({url : url,
+        $.ajax({
+            url : url,
             type: 'get',
             data: data,
             success: function(responseJSON, status){

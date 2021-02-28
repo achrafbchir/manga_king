@@ -105,4 +105,20 @@ class CategorieController extends Controller
 
         return back();
     }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function massDestroy(Request $request)
+    {
+        if($request->ids) 
+            Categorie::whereIn('id', $request->ids)->delete();
+
+        return response()->json([
+            'url' => route("admin.categorie.index")
+        ]);
+    }
 }
