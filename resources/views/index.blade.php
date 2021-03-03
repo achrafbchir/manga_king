@@ -85,7 +85,7 @@
                     <hr />
                     <div class="nav flex-column nav-pills">
                         <a href="{{route('home')}}" class="nav-link {{ request()->is('admin') ? 'active' : '' }}" id="v-pills-home-tab" data-toggle="pill"  role="tab" aria-controls="v-pills-home" aria-selected="true"><i class="fas fa-home"></i> Home</a>
-                        <a href="#" class="nav-link {{ request()->is('admin/manga') || request()->is('admin/manga/*') ? 'active' : '' }}"><i class="fas fa-book"></i> Manga</a>
+                        <a href="{{route('admin.manga.index')}}" class="nav-link {{ request()->is('admin/manga') || request()->is('admin/manga/*') ? 'active' : '' }}"><i class="fas fa-book"></i> Manga</a>
                         <a href="{{route('admin.categorie.index')}}" class="nav-link {{ request()->is('admin/categorie') || request()->is('admin/categorie/*') ? 'active' : '' }}"><i class="far fa-sticky-note"></i> Categories</a>
                         <a class="nav-link"><i class="fas fa-chart-area"></i> Statistics</a>
                         <a class="nav-link"><i class="fas fa-cog"></i> Settings</a>
