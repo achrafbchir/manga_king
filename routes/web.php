@@ -36,9 +36,11 @@ Route::group([
 
     Route::group(["prefix" => "manga"], function(){
         Route::get('index', 'MangaController@index')->name('admin.manga.index');
+        Route::get('create', 'MangaController@create')->name('admin.manga.create');
+        Route::get('edit/{id}', 'MangaController@edit')->name('admin.manga.edit');
         Route::get('show/{id}', 'MangaController@show')->name('admin.manga.show');
         Route::post('store', 'MangaController@store')->name('admin.manga.store');
-        Route::put('update/{id?}', 'MangaController@update')->name('admin.manga.update');
+        Route::put('update/{id}', 'MangaController@update')->name('admin.manga.update');
         Route::delete('delete/{id}', 'MangaController@destroy')->name('admin.manga.delete');
         Route::delete('mass_delete', 'MangaController@massDestroy')->name('admin.manga.mass_delete');
     });
