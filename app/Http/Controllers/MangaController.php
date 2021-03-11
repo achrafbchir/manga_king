@@ -30,7 +30,7 @@ class MangaController extends Controller
      */
     public function create()
     {
-        //
+        return View("admin.manga.create", ['manga_statues' => Manga::STATUES, "manga_types" => Manga::TYPES]);
     }
 
     /**

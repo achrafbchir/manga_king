@@ -31,7 +31,7 @@
             </div>
             <div class="d-flex justify-content-end mb-3">
                 <button class="btn btn-danger mass-delete-manga"><i class="fas fas fa-trash-alt"></i> Delete Multiple Mangas</button>
-                <button class="btn btn-primary ml-3" data-toggle="modal" data-target="#mangaCreate"><i class="fas fa-plus-circle"></i> Add New Manga</button>
+                <a href="{{route('admin.manga.create')}}" role="button" class="btn btn-primary ml-3"><i class="fas fa-plus-circle"></i> Add New Manga</a>
             </div>
 
             <table class="table table-striped">
