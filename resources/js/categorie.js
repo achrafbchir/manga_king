@@ -2,7 +2,6 @@ import $ from 'jquery';
 window.$ = window.jQuery = $;
 
 $(document).ready(function(){
-    console.log($("#categories .modal#categorieUpdate"));
 
     $(".show-infos, .edit-infos").on('click',function(){
         let url = $(this).attr('href');
@@ -21,7 +20,6 @@ $(document).ready(function(){
                 }
                 let route = $("#categories .modal .modal-footer .update").data('url');
                 $("#categories .modal form").attr('action', route + "/" + responseJSON.id)
-                //console.log()
                 return responseJSON;
             },
             error: function(responseJSON, status){
