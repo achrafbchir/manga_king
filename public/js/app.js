@@ -37296,6 +37296,10 @@ __webpack_require__(/*! ./cast */ "./resources/js/cast.js");
 
 __webpack_require__(/*! ./categorie */ "./resources/js/categorie.js");
 
+__webpack_require__(/*! ./manga */ "./resources/js/manga.js");
+
+__webpack_require__(/*! ./more-items */ "./resources/js/more-items.js");
+
 
 window.$ = window.jQuery = jquery__WEBPACK_IMPORTED_MODULE_0___default.a;
 window.local_url = "http://127.0.0.1:8000/";
@@ -37383,7 +37387,6 @@ __webpack_require__.r(__webpack_exports__);
 
 window.$ = window.jQuery = jquery__WEBPACK_IMPORTED_MODULE_0___default.a;
 jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
-  console.log(jquery__WEBPACK_IMPORTED_MODULE_0___default()("#categories .modal#categorieUpdate"));
   jquery__WEBPACK_IMPORTED_MODULE_0___default()(".show-infos, .edit-infos").on('click', function () {
     var url = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).attr('href');
     var id = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).parent().siblings("th").text();
@@ -37400,8 +37403,7 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
         }
 
         var route = jquery__WEBPACK_IMPORTED_MODULE_0___default()("#categories .modal .modal-footer .update").data('url');
-        jquery__WEBPACK_IMPORTED_MODULE_0___default()("#categories .modal form").attr('action', route + "/" + responseJSON.id); //console.log()
-
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()("#categories .modal form").attr('action', route + "/" + responseJSON.id);
         return responseJSON;
       },
       error: function error(responseJSON, status) {
@@ -37445,6 +37447,50 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
         return responseJSON;
       }
     });
+  });
+});
+
+/***/ }),
+
+/***/ "./resources/js/manga.js":
+/*!*******************************!*\
+  !*** ./resources/js/manga.js ***!
+  \*******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+
+
+/***/ }),
+
+/***/ "./resources/js/more-items.js":
+/*!************************************!*\
+  !*** ./resources/js/more-items.js ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$(document).ready(function () {
+  $(document).on("click", ".add_more", function (e) {
+    e.preventDefault();
+    var items = $(".items");
+    var more_items = $(".more_items").html();
+    var number = items.find(".item").last().length > 0 ? parseInt(items.find(".item").last().attr("data-number")) + 1 : 0;
+    items.append(more_items.replaceAll("__number__", number));
+  });
+  $(document).on("click", ".delete-more", function (e) {
+    e.preventDefault();
+    var number = parseInt($(this).closest(".item").attr("data-number"));
+    $(".items .item").each(function () {
+      var element_number = parseInt($(this).attr("data-number"));
+
+      if (element_number > number) {
+        var new_element_html = $(this).html().replaceAll("[" + element_number + "]", "[" + (element_number - 1) + "]");
+        $(this).html(new_element_html);
+        $(this).attr("data-number", element_number - 1);
+      }
+    });
+    $(this).closest(".item").remove();
   });
 });
 

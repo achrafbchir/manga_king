@@ -1,6 +1,8 @@
 require('./bootstrap');
 require('./cast');
 require('./categorie');
+require('./manga');
+require('./more-items');
 
 import $ from 'jquery';
 window.$ = window.jQuery = $;

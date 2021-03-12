@@ -20,24 +20,26 @@
 
                 <button class="btn btn-primary add_more"><i class="fa fa-plus"></i> Add other names</button>
 
-                <div class="items other_names">
+                <div class="other_names">
                     <label for="">Other name</label>
+                    <div class="items"></div>
                 </div>
 
-                <div class="more_items" data-number="__number__">
-                    
-                    <div class="row">
-                        <div class="col-md-5 col-sm-12">
-                            <label for="name">Key</label>
-                            <input type="text" name="other_names[__number__][key]" class="form-control" placeholder="language or a key..." required>
-                        </div>
-                        <div class="col-md-5 col-sm-12">
-                            <label for="name">Name</label>
-                            <input type="text" name="other_names[__number__][value]" class="form-control" placeholder="other name..." required>
-                        </div>
-                        <div class="col-md-2 col-sm-12">
-                            <label for="name"></label>
-                            <button class="mt-2 d-block" style="color: #F00 !important; border: none; background: none; padding: 0" ><i class="fas fa-trash-alt"></i> delete this name</button>
+                <div class="more_items d-none">
+                    <div class="item" data-number="__number__">
+                        <div class="row">
+                            <div class="col-md-5 col-sm-12">
+                                <label for="name">Key</label>
+                                <input type="text" name="other_names[__number__][key]" class="form-control" placeholder="language or a key..." required>
+                            </div>
+                            <div class="col-md-5 col-sm-12">
+                                <label for="name">Name</label>
+                                <input type="text" name="other_names[__number__][value]" class="form-control" placeholder="other name..." required>
+                            </div>
+                            <div class="col-md-2 col-sm-12">
+                                <label for="name"></label>
+                                <button class="mt-2 d-block delete-more" style="color: #F00 !important; border: none; background: none; padding: 0" ><i class="fas fa-trash-alt"></i> delete this name</button>
+                            </div>
                         </div>
                     </div>
                 </div>
