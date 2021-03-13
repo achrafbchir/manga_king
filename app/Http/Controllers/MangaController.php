@@ -30,7 +30,7 @@ class MangaController extends Controller
      */
     public function create()
     {
-        return View("admin.manga.create", ['manga_statues' => Manga::STATUES, "manga_types" => Manga::TYPES]);
+        return View("admin.manga.create", ['manga_statues' => Manga::STATUES, "manga_types" => Manga::TYPES, "categorie_ages" => Manga::AGE_CATEGORIES]);
     }
 
     /**
@@ -41,7 +41,9 @@ class MangaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $manga = Manga::create($request->all());
+
+        return redirect()->route("admin.manga.index");
     }
 
     /**

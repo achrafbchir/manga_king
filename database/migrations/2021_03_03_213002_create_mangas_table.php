@@ -16,7 +16,7 @@ class CreateMangasTable extends Migration
         Schema::create('mangas', function (Blueprint $table) {
             $table->id();
             $table->string("name");
-            $table->text("other_names")->nullable(); // serialized values
+            $table->json("other_names")->nullable(); // serialized values
             $table->string("season")->nullable();
             $table->string("mangaka")->nullable();
             $table->text("synopsis")->nullable();
