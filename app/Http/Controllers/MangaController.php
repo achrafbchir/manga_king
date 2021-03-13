@@ -9,6 +9,7 @@ use Illuminate\View\View;
 
 class MangaController extends Controller
 {
+    protected $data = ['manga_statues' => Manga::STATUES, "manga_types" => Manga::TYPES, "categorie_ages" => Manga::AGE_CATEGORIES];
     /**
      * Display a listing of the resource.
      *
@@ -30,7 +31,7 @@ class MangaController extends Controller
      */
     public function create()
     {
-        return View("admin.manga.create", ['manga_statues' => Manga::STATUES, "manga_types" => Manga::TYPES, "categorie_ages" => Manga::AGE_CATEGORIES]);
+        return View("admin.manga.create", $this->data);
     }
 
     /**
@@ -65,7 +66,9 @@ class MangaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $manga = Manga::find($id);
+
+        return view('admin.manga.edit', compact('manga'))->with($this->data);
     }
 
     /**
@@ -77,7 +80,9 @@ class MangaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $manga = Manga::find($id)->update($request->all());
+
+        return redirect()->route("admin.manga.index");
     }
 
     /**
