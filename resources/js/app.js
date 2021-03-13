@@ -1,8 +1,10 @@
 require('./bootstrap');
+require('./datepicker');
 require('./cast');
 require('./categorie');
 require('./manga');
 require('./more-items');
+require('./date');
 
 import $ from 'jquery';
 window.$ = window.jQuery = $;

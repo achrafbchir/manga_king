@@ -5,7 +5,7 @@ $(document).ready(function(){
         var items = $(".items");
         var more_items = $(".more_items").html();
         var number = items.find(".item").last().length > 0 ? parseInt(items.find(".item").last().attr("data-number")) + 1 : 0;
-        items.append(more_items.replaceAll("__number__", number));
+        items.append(more_items.replaceAll("__number__", number).replaceAll('disabled', ''));
     });
 
     $(document).on("click", ".delete-more", function(e){
