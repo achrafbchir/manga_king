@@ -16040,6 +16040,11 @@ a.text-dark:focus {
   margin-right: -5px;
 }
 
+.form-control {
+  border: 1px solid #08F;
+  border-radius: 20px;
+}
+
 body {
   font-size: 16px;
 }
