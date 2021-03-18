@@ -27,7 +27,7 @@
                     <button class="btn btn-primary add_more"><i class="fa fa-plus"></i> Add other names</button>
                 </div>
 
-                <div class="other_names col-12">
+                <div class="other_names col-12 my-3">
                     <label for="">Other name</label>
                     <div class="items"></div>
                 </div>
@@ -36,17 +36,17 @@
                     <div class="item" data-number="__number__">
                         <div class="row">
                                
-                            <div class="col-md-5 col-sm-12">
+                            <div class="col-md-4 col-sm-12">
                                 <label for="key">Key</label>
                                 <input type="text" disabled name="other_names[__number__][key]" class="form-control" placeholder="language or a key...">
                             </div>
                             
-                            <div class="col-md-6 col-sm-12">
+                            <div class="col-md-4 col-sm-12">
                                 <label for="name">Name</label>
                                 <input type="text" disabled name="other_names[__number__][value]" class="form-control" placeholder="other name...">
                                 {{--<input type="text" name="other_names[__number__][value]" class="form-control" placeholder="other name...">--}}
                             </div>
-                            <div class="col-md-6 col-sm-12">
+                            <div class="col-md-4 col-sm-12">
                                 <label for="name"></label>
                                 <button class="mt-2 d-block delete-more" style="color: #F00 !important; border: none; background: none; padding: 0" ><i class="fas fa-trash-alt"></i> delete this name</button>
                             </div>

@@ -16082,3 +16082,22 @@ aside a .nav-link .active {
   color: #F00;
 }
 
+.search {
+  position: relative;
+}
+
+.search input {
+  border: none;
+  border-bottom: 1px solid #AAA;
+}
+
+.search input:focus {
+  outline: none;
+}
+
+.search i {
+  position: absolute;
+  left: 90%;
+  top: 20%;
+}
+

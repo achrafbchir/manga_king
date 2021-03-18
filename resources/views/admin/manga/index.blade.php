@@ -23,7 +23,7 @@
                     </select>&nbsp;
                     <span>entries</span>
                 </div>
-                <div>
+                <div class="search">
                     <span>Search</span>&nbsp;
                     <input type="text" placeholder="Search...">
                     <i class="fas fa-search"></i>
@@ -52,8 +52,8 @@
                             <td class="col-3">{{$manga->name}}</td>
                             <td class="col-3">{{$manga->is_active}}</td>
                             <td class="col-3" style="font-size: 18px !important;">
-                                <a href="{{route('admin.manga.show', ['id' => $manga->id ]) }}" role="button" class="show-infos mr-3" style="color: #08F !important;" data-toggle="modal" data-target="#mangaEdit"><i class="fas fa-info-circle"></i></a>
-                                <a href="{{route('admin.manga.edit', ['id' => $manga->id ]) }}" role="button" class="edit-infos mr-3" style="color: #080 !important;" data-toggle="modal" data-target="#mangaEdit"><i class="far fa-edit"></i></a>
+                                <a href="{{route('admin.manga.show', ['id' => $manga->id ]) }}" role="button" class="show-infos mr-3" style="color: #08F !important;""><i class="fas fa-info-circle"></i></a>
+                                <a href="{{route('admin.manga.edit', ['id' => $manga->id ]) }}" role="button" class="edit-infos mr-3" style="color: #080 !important;" ><i class="far fa-edit"></i></a>
                                 <form method="post" action="{{route('admin.manga.delete', ['id' => $manga->id ]) }}" class="d-inline" onsubmit="return confirm('You want to delete this manga ?');">
                                 @csrf
                                 @method("DELETE")

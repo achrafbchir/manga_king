@@ -56,3 +56,19 @@ aside{
     }
     
 }
+
+.search{
+    position: relative;
+    input{
+        border: none;
+        border-bottom: 1px solid #AAA;
+        &:focus{
+            outline: none;
+        }
+    }
+    i{
+        position: absolute;
+        left: 90%;
+        top: 20%;
+    }
+}
