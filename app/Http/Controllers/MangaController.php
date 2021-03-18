@@ -55,7 +55,7 @@ class MangaController extends Controller
      */
     public function show($id)
     {
-        //
+        return View("admin.manga.show");
     }
 
     /**
@@ -93,6 +93,8 @@ class MangaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Manga::find($id)->delete();
+
+        return redirect()->back();
     }
 }
